@@ -14,7 +14,49 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLZ-DZ-3jm">
+                                <rect key="frame" x="20.5" y="64" width="373" height="34"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JLT-qS-lFS">
+                                        <rect key="frame" x="0.0" y="0.0" width="298.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQo-Yz-xWK">
+                                        <rect key="frame" x="298.5" y="0.0" width="74.5" height="34"/>
+                                        <state key="normal" title="Find"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="VQo-Yz-xWK" firstAttribute="width" secondItem="MLZ-DZ-3jm" secondAttribute="width" multiplier="0.2" id="Vlv-1N-kvb"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dre-B4-IOK">
+                                <rect key="frame" x="0.0" y="118" width="414" height="744"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="29t-hF-47I">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="29t-hF-47I" id="kER-qV-dgc">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dre-B4-IOK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3Js-BW-zM7"/>
+                            <constraint firstItem="MLZ-DZ-3jm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="59u-gv-UiY"/>
+                            <constraint firstAttribute="bottom" secondItem="dre-B4-IOK" secondAttribute="bottom" constant="34" id="N4n-cB-Mzs"/>
+                            <constraint firstItem="dre-B4-IOK" firstAttribute="top" secondItem="MLZ-DZ-3jm" secondAttribute="bottom" constant="20" id="WaF-bG-eaX"/>
+                            <constraint firstAttribute="trailing" secondItem="dre-B4-IOK" secondAttribute="trailing" id="Yo8-HH-uPW"/>
+                            <constraint firstItem="MLZ-DZ-3jm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zlg-hr-C9H"/>
+                            <constraint firstItem="MLZ-DZ-3jm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="khL-ov-GwC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
