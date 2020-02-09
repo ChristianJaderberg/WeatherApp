@@ -10,7 +10,7 @@ import UIKit
 
 class LocationViewController: UIViewController {
 
-    var location = "Location"
+    var location = Location(title: "LocationName")
     
     @IBOutlet weak var locationNavigation: UINavigationItem!
     @IBOutlet weak var locationLabel: UILabel!
@@ -18,7 +18,7 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationNavigation.title = self.location
-        locationLabel.text = self.location
+        locationNavigation.title = self.location.title
+        locationLabel.text = self.location.title
     }
 }
