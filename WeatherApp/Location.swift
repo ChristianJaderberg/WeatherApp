@@ -11,5 +11,11 @@ import Foundation
 struct Location: Codable {
     
     let title: String
+    let woeid: Int
+    
+    init() {
+        self.title = "Location"
+        self.woeid = 0
+    }
     
 }

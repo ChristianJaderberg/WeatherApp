@@ -15,7 +15,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var searchButton: UIButton!
     
     var searchResultArray = [Location]()
-    var testArray = ["Gothenburg", "Stockholm", "San Diego", "Åmål", "Vänersborg", "Umeå", "Malmö"]
     let api = API()
     
     override func viewDidLoad() {
@@ -52,9 +51,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func searchLocation(searchString: String) -> Void {
-        // TODO get current string in textfield, send it to API, populate tableview with received data
-        
         print("searchLocation-Method called")
+        // TODO progress indicator start
         api.searchLocation(searchString: searchString) { (result) in
             switch result {
             case .success(let locationArray):
@@ -62,20 +60,22 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 if (!resultArray.isEmpty) {
                     self.searchResultArray = resultArray
                     for i in resultArray {
-                        print("Value: " + i.title)
+                        print("Value: " + i.title + ", woeid: " + String(i.woeid))
                     }
                 } else {
                     self.searchResultArray.removeAll()
-                    self.searchResultArray.append(Location(title: "No location was found"))
+                    // TODO To tell that no location was found, use Alert view instead of a tableview row
+                    let location = Location()
+                    self.searchResultArray.append(location)
                 }
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    // TODO progress indicator stop
                 }
             case .failure(let error): print("Error \(error)")
             }
         }
-        
     }
     
     // MARK: - Tableview
