@@ -13,6 +13,7 @@ class LocationViewController: UIViewController {
     var location = Location()
     
     @IBOutlet weak var locationNavigation: UINavigationItem!
+    @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var maxTempLabel: UILabel!
@@ -46,6 +47,8 @@ class LocationViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     // Update UI
+                    
+                    self.setWeatherImage(weatherAbbr: self.currentWeatherDay.weatherStateAbbr)
                     self.tempLabel.text = String(round(10 * self.currentWeatherDay.theTemp) / 10)
                     self.maxTempLabel.text = String(round(10 * self.currentWeatherDay.maxTemp) / 10)
                     self.minTempLabel.text = String(round(10 * self.currentWeatherDay.minTemp) / 10)
@@ -59,4 +62,27 @@ class LocationViewController: UIViewController {
             }
         }
     }
+    
+    func setWeatherImage(weatherAbbr: String) {
+        let url = "https://www.metaweather.com/static/img/weather/png/\(weatherAbbr).png"
+        guard let imageURL = URL(string: url) else { return }
+        self.weatherImageView.downloadImage(from: imageURL)
+    }
+}
+
+extension UIImageView {
+   func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+      URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+   }
+   func downloadImage(from url: URL) {
+      getData(from: url) {
+         data, response, error in
+         guard let data = data, error == nil else {
+            return
+         }
+         DispatchQueue.main.async() {
+            self.image = UIImage(data: data)
+         }
+      }
+   }
 }
