@@ -20,7 +20,6 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var minTempLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var clothingTipTextview: UITextView!
     
     let api = API()
@@ -53,12 +52,11 @@ class LocationViewController: UIViewController {
                     // Update UI
                     
                     self.setWeatherImage(weatherAbbr: self.currentWeatherDay.weatherStateAbbr)
-                    self.tempLabel.text = String(round(10 * self.currentWeatherDay.theTemp) / 10)
-                    self.maxTempLabel.text = String(round(10 * self.currentWeatherDay.maxTemp) / 10)
-                    self.minTempLabel.text = String(round(10 * self.currentWeatherDay.minTemp) / 10)
+                    self.tempLabel.text = String(round(10 * self.currentWeatherDay.theTemp) / 10) + " °C"
+                    self.maxTempLabel.text = String(round(10 * self.currentWeatherDay.maxTemp) / 10) + " °C"
+                    self.minTempLabel.text = String(round(10 * self.currentWeatherDay.minTemp) / 10) + " °C"
                     self.humidityLabel.text = String(self.currentWeatherDay.humidity) + " %"
                     self.descriptionLabel.text = self.currentWeatherDay.weatherStateName
-                    self.dateLabel.text = self.currentWeatherDay.applicableDate
                     self.clothingTipTextview.text = self.clothingTip.getTip(weather: self.currentWeatherDay)
                     
                     // TODO progress indicator stop
@@ -76,10 +74,10 @@ class LocationViewController: UIViewController {
     
     func animateWeather() {
         UIView.animate(withDuration: 1, animations: {
-            self.weatherImageView.frame.origin.y -= 20
+            self.weatherImageView.frame.origin.y += 10
         }){_ in
             UIView.animateKeyframes(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat], animations: {
-                self.weatherImageView.frame.origin.y += 20
+                self.weatherImageView.frame.origin.y -= 10
             })
         }
     }
