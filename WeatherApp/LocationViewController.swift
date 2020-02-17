@@ -21,10 +21,12 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var clothingTipTextview: UITextView!
     
     let api = API()
     var currentWeather = Weather()
     var currentWeatherDay = ConsolidatedWeather()
+    var clothingTip = ClothingTip()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,8 @@ class LocationViewController: UIViewController {
         locationLabel.text = self.location.title
         
         getWeather(woeid: location.woeid)
+        
+        animateWeather()
     }
     
     func getWeather(woeid: Int) -> Void {
@@ -55,6 +59,7 @@ class LocationViewController: UIViewController {
                     self.humidityLabel.text = String(self.currentWeatherDay.humidity) + " %"
                     self.descriptionLabel.text = self.currentWeatherDay.weatherStateName
                     self.dateLabel.text = self.currentWeatherDay.applicableDate
+                    self.clothingTipTextview.text = self.clothingTip.getTip(weather: self.currentWeatherDay)
                     
                     // TODO progress indicator stop
                 }
@@ -68,6 +73,16 @@ class LocationViewController: UIViewController {
         guard let imageURL = URL(string: url) else { return }
         self.weatherImageView.downloadImage(from: imageURL)
     }
+    
+    func animateWeather() {
+        UIView.animate(withDuration: 1, animations: {
+            self.weatherImageView.frame.origin.y -= 20
+        }){_ in
+            UIView.animateKeyframes(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat], animations: {
+                self.weatherImageView.frame.origin.y += 20
+            })
+        }
+    }
 }
 
 extension UIImageView {
@@ -77,9 +92,7 @@ extension UIImageView {
    func downloadImage(from url: URL) {
       getData(from: url) {
          data, response, error in
-         guard let data = data, error == nil else {
-            return
-         }
+         guard let data = data, error == nil else { return }
          DispatchQueue.main.async() {
             self.image = UIImage(data: data)
          }

@@ -13,6 +13,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var searchResultArray = [Location]()
     let api = API()
@@ -53,6 +54,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func searchLocation(searchString: String) -> Void {
         print("searchLocation-Method called")
         // TODO progress indicator start
+        self.activityIndicator.startAnimating()
         api.searchLocation(searchString: searchString) { (result) in
             switch result {
             case .success(let locationArray):
@@ -72,6 +74,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     // TODO progress indicator stop
+                    self.activityIndicator.stopAnimating()
                 }
             case .failure(let error): print("Error \(error)")
             }

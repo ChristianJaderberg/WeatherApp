@@ -20,6 +20,7 @@
 		D940357823F061120050A70E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = D940357723F061120050A70E /* Weather.swift */; };
 		D9AA115623ED91EE0059DCDB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AA115523ED91EE0059DCDB /* Location.swift */; };
 		D9AA115823ED925A0059DCDB /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AA115723ED925A0059DCDB /* API.swift */; };
+		D9C8231023FAA78B00654D32 /* ClothingTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C8230F23FAA78A00654D32 /* ClothingTip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		D940357723F061120050A70E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		D9AA115523ED91EE0059DCDB /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		D9AA115723ED925A0059DCDB /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D9C8230F23FAA78A00654D32 /* ClothingTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingTip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				D92559CF23EC278F00135E0A /* TableViewCell.swift */,
 				D9AA115523ED91EE0059DCDB /* Location.swift */,
 				D940357723F061120050A70E /* Weather.swift */,
+				D9C8230F23FAA78A00654D32 /* ClothingTip.swift */,
 				D9AA115723ED925A0059DCDB /* API.swift */,
 				D91E1AF923E85A390003F5F8 /* Main.storyboard */,
 				D91E1AFC23E85A420003F5F8 /* Assets.xcassets */,
@@ -279,6 +282,7 @@
 				D91E1AF823E85A390003F5F8 /* SearchViewController.swift in Sources */,
 				D92559D023EC278F00135E0A /* TableViewCell.swift in Sources */,
 				D91E1AF423E85A390003F5F8 /* AppDelegate.swift in Sources */,
+				D9C8231023FAA78B00654D32 /* ClothingTip.swift in Sources */,
 				D9AA115623ED91EE0059DCDB /* Location.swift in Sources */,
 				D9AA115823ED925A0059DCDB /* API.swift in Sources */,
 				D91E1AF623E85A390003F5F8 /* SceneDelegate.swift in Sources */,

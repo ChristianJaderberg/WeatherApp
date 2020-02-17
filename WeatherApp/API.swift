@@ -24,15 +24,15 @@ struct API {
         guard let url: URL = URL(string: urlString) else { return }
         
         // Request
-        print("Creating request..")
+        print("Requesting")
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let unwrappedError = error {
-                print("Nåt gick fel. Error: \(unwrappedError)")
+                print("Caught error: \(unwrappedError)")
                 completion(.failure(unwrappedError))
                 return
             }
             if let unwrappedData = data {
-                print("We got data! \(String(data: unwrappedData, encoding: String.Encoding.utf8) ?? "No data")")
+                print("Data was found: \(String(data: unwrappedData, encoding: String.Encoding.utf8) ?? "No data was found")")
                 do {
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -41,7 +41,7 @@ struct API {
                     // print("Location name: \(locationArray[0].title)")
                     completion(.success(locationArray))
                 } catch {
-                    print("Couldnt parse JSON..")
+                    print("Unable to parse JSON")
                 }                
             }
         }
@@ -58,15 +58,15 @@ struct API {
         guard let url: URL = URL(string: urlString) else { return }
         
         // Request
-        print("Creating request..")
+        print("Requesting")
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let unwrappedError = error {
-                print("Nåt gick fel. Error: \(unwrappedError)")
+                print("Caught error: \(unwrappedError)")
                 completion(.failure(unwrappedError))
                 return
             }
             if let unwrappedData = data {
-                print("We got data! \(String(data: unwrappedData, encoding: String.Encoding.utf8) ?? "No data")")
+                print("Data was found: \(String(data: unwrappedData, encoding: String.Encoding.utf8) ?? "No data was found")")
                 do {
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -75,7 +75,7 @@ struct API {
                     // print("Location name: \(locationArray[0].title)")
                     completion(.success(weather))
                 } catch {
-                    print("Couldnt parse JSON..")
+                    print("Unable to parse JSON")
                 }
             }
         }
