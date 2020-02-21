@@ -10,8 +10,6 @@ import UIKit
 
 class LocationViewController: UIViewController {
 
-    var location = Location()
-    
     @IBOutlet weak var locationNavigation: UINavigationItem!
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
@@ -20,15 +18,31 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var minTempLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var clothingTipImageview: UIImageView!
     @IBOutlet weak var clothingTipTextview: UITextView!
     
     let api = API()
     var currentWeather = Weather()
     var currentWeatherDay = ConsolidatedWeather()
     var clothingTip = ClothingTip()
+    var location = Location()
     
+    var animator: UIDynamicAnimator!
+    var gravity: UIGravityBehavior!
+    var collision: UICollisionBehavior!
+    var push: UIPushBehavior!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        animator = UIDynamicAnimator(referenceView: view)
+        gravity = UIGravityBehavior(items: [self.clothingTipImageview])
+        
+        collision = UICollisionBehavior(items: [self.clothingTipImageview])
+        collision.translatesReferenceBoundsIntoBoundary = true
+        
+        push = UIPushBehavior(items: [self.clothingTipImageview], mode: UIPushBehavior.Mode.instantaneous)
+        push.pushDirection = CGVector.init(dx: 10, dy: 50)
         
         locationNavigation.title = self.location.title
         locationLabel.text = self.location.title
@@ -36,6 +50,13 @@ class LocationViewController: UIViewController {
         getWeather(woeid: location.woeid)
         
         animateWeather()
+    }
+    
+    // clothingTipImage is touched
+    @IBAction func clothingTipImageTouch(_ sender: Any) {
+        // animator.addBehavior(gravity)
+        animator.addBehavior(collision)
+        animator.addBehavior(push)
     }
     
     func getWeather(woeid: Int) -> Void {

@@ -194,8 +194,12 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather-expert" translatesAutoresizingMaskIntoConstraints="NO" id="BaF-xN-Lfh">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather-expert" translatesAutoresizingMaskIntoConstraints="NO" id="BaF-xN-Lfh">
                                 <rect key="frame" x="165.5" y="423" width="83" height="82.5"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="eK1-GX-Ugx" appends="YES" id="hrS-nc-Lvb"/>
+                                </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lsv-av-dBo">
                                 <rect key="frame" x="40" y="525.5" width="334" height="91"/>
@@ -217,6 +221,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="lsv-av-dBo" firstAttribute="top" secondItem="BaF-xN-Lfh" secondAttribute="bottom" constant="20" id="4QK-kg-S68"/>
                             <constraint firstItem="bBk-Sp-esx" firstAttribute="height" secondItem="l5F-EO-lbj" secondAttribute="width" multiplier="0.2" id="59H-O5-iQa"/>
@@ -240,6 +245,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Location" id="mX0-EH-6PS"/>
                     <connections>
+                        <outlet property="clothingTipImageview" destination="BaF-xN-Lfh" id="Gbb-yw-hlO"/>
                         <outlet property="clothingTipTextview" destination="adR-2o-hAq" id="k1O-7f-asW"/>
                         <outlet property="descriptionLabel" destination="5Fe-RO-BLy" id="NEC-ML-a2b"/>
                         <outlet property="humidityLabel" destination="TRc-AK-6W7" id="VMn-Ha-5fG"/>
@@ -252,6 +258,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mkq-bb-MBL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="eK1-GX-Ugx">
+                    <connections>
+                        <action selector="clothingTipImageTouch:" destination="0nk-wV-zej" id="2gv-DL-vXh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1879.7101449275365" y="117.85714285714285"/>
         </scene>
