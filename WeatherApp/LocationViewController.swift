@@ -27,6 +27,7 @@ class LocationViewController: UIViewController {
     var clothingTip = ClothingTip()
     var location = Location()
     
+    // UIDynamics
     var animator: UIDynamicAnimator!
     var gravity: UIGravityBehavior!
     var collision: UICollisionBehavior!
@@ -35,28 +36,29 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        animator = UIDynamicAnimator(referenceView: view)
-        gravity = UIGravityBehavior(items: [self.clothingTipImageview])
-        
-        collision = UICollisionBehavior(items: [self.clothingTipImageview])
-        collision.translatesReferenceBoundsIntoBoundary = true
-        
-        push = UIPushBehavior(items: [self.clothingTipImageview], mode: UIPushBehavior.Mode.instantaneous)
-        push.pushDirection = CGVector.init(dx: 10, dy: 50)
-        
         locationNavigation.title = self.location.title
         locationLabel.text = self.location.title
         
         getWeather(woeid: location.woeid)
         
+        setUpUIDynamics()
         animateWeather()
     }
     
     // clothingTipImage is touched
     @IBAction func clothingTipImageTouch(_ sender: Any) {
-        // animator.addBehavior(gravity)
-        animator.addBehavior(collision)
-        animator.addBehavior(push)
+        self.animator.addBehavior(gravity)
+        self.animator.addBehavior(collision)
+        self.animator.addBehavior(push)
+    }
+    
+    func setUpUIDynamics() -> Void {
+        self.animator = UIDynamicAnimator(referenceView: view)
+        self.gravity = UIGravityBehavior(items: [self.clothingTipImageview])
+        self.collision = UICollisionBehavior(items: [self.clothingTipImageview])
+        self.collision.translatesReferenceBoundsIntoBoundary = true
+        self.push = UIPushBehavior(items: [self.clothingTipImageview], mode: UIPushBehavior.Mode.instantaneous)
+        self.push.setAngle(180.0, magnitude: 10.0)
     }
     
     func getWeather(woeid: Int) -> Void {

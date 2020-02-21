@@ -13,7 +13,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var searchResultArray = [Location]()
     let api = API()
@@ -53,8 +52,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func searchLocation(searchString: String) -> Void {
         print("searchLocation-Method called")
+        var noSearchResults: Bool = false
         // TODO progress indicator start
-        self.activityIndicator.startAnimating()
         api.searchLocation(searchString: searchString) { (result) in
             switch result {
             case .success(let locationArray):
@@ -66,15 +65,18 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                     }
                 } else {
                     self.searchResultArray.removeAll()
-                    // TODO To tell that no location was found, use Alert view instead of a tableview row
-                    let location = Location()
-                    self.searchResultArray.append(location)
+                    noSearchResults = true
                 }
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     // TODO progress indicator stop
-                    self.activityIndicator.stopAnimating()
+                    // Alert view tells that no location was found
+                    if (noSearchResults) {
+                        let alert : UIAlertController = UIAlertController(title: "No location", message: "No loction was found for \(searchString), please try something else", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
             case .failure(let error): print("Error \(error)")
             }

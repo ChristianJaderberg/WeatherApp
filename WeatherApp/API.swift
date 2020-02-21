@@ -38,7 +38,6 @@ struct API {
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     decoder.dateDecodingStrategy = .secondsSince1970
                     locationArray = try decoder.decode([Location].self, from: unwrappedData)
-                    // print("Location name: \(locationArray[0].title)")
                     completion(.success(locationArray))
                 } catch {
                     print("Unable to parse JSON")
@@ -72,7 +71,6 @@ struct API {
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     decoder.dateDecodingStrategy = .secondsSince1970
                     let weather = try decoder.decode(Weather.self, from: unwrappedData)
-                    // print("Location name: \(locationArray[0].title)")
                     completion(.success(weather))
                 } catch {
                     print("Unable to parse JSON")

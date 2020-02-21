@@ -61,7 +61,7 @@ struct ClothingTip {
             fatalError()
         }
         
-        return "\"You need " + firstTip + secondTip + ".\""
+        return "\"You need " + firstTip + secondTip + ". Touch me for some action.\""
     }
     
 }

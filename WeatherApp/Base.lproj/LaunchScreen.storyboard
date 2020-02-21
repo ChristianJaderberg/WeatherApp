@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,18 +15,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-icon-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="3Kl-ox-dEu">
+                                <rect key="frame" x="103.5" y="179.5" width="207" height="207"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Weather App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjA-eA-HGg">
-                                <rect key="frame" x="103.5" y="435" width="207" height="26"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <rect key="frame" x="103.5" y="436.5" width="207" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="3Kl-ox-dEu" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.5" id="7sr-i2-Y8E"/>
+                            <constraint firstItem="yjA-eA-HGg" firstAttribute="top" secondItem="3Kl-ox-dEu" secondAttribute="bottom" constant="50" id="DhU-aP-vTy"/>
                             <constraint firstItem="yjA-eA-HGg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="X6F-7l-KLP"/>
                             <constraint firstItem="yjA-eA-HGg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bKc-3q-EIP"/>
+                            <constraint firstItem="3Kl-ox-dEu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="euZ-U0-pix"/>
                             <constraint firstItem="yjA-eA-HGg" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.5" id="qzz-YM-y6q"/>
+                            <constraint firstItem="3Kl-ox-dEu" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.5" id="wEk-Ch-Sff"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,4 +43,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="app-icon-transparent" width="400" height="400"/>
+    </resources>
 </document>

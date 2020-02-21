@@ -15,10 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="B17-G7-GxN">
-                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                                <color key="color" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLZ-DZ-3jm">
                                 <rect key="frame" x="20.5" y="108" width="373" height="36"/>
                                 <subviews>
@@ -81,8 +77,6 @@
                         <constraints>
                             <constraint firstItem="dre-B4-IOK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3Js-BW-zM7"/>
                             <constraint firstItem="MLZ-DZ-3jm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="59u-gv-UiY"/>
-                            <constraint firstItem="B17-G7-GxN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7JN-6V-V7d"/>
-                            <constraint firstItem="B17-G7-GxN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="As4-Ta-jwN"/>
                             <constraint firstAttribute="bottom" secondItem="dre-B4-IOK" secondAttribute="bottom" constant="34" id="N4n-cB-Mzs"/>
                             <constraint firstItem="dre-B4-IOK" firstAttribute="top" secondItem="MLZ-DZ-3jm" secondAttribute="bottom" constant="20" id="WaF-bG-eaX"/>
                             <constraint firstAttribute="trailing" secondItem="dre-B4-IOK" secondAttribute="trailing" id="Yo8-HH-uPW"/>
@@ -93,7 +87,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Select location" id="q9T-ck-f74"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="B17-G7-GxN" id="ova-yR-6z6"/>
                         <outlet property="searchButton" destination="VQo-Yz-xWK" id="EGd-PA-6X1"/>
                         <outlet property="searchTextField" destination="JLT-qS-lFS" id="AuR-F2-1xT"/>
                         <outlet property="tableView" destination="dre-B4-IOK" id="BPQ-3g-bPu"/>
@@ -123,7 +116,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bBk-Sp-esx">
                                         <rect key="frame" x="0.0" y="0.0" width="83" height="83"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fad-pg-gyg">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 °C" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fad-pg-gyg">
                                         <rect key="frame" x="83" y="0.0" width="120" height="83"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="LU5-Ww-V4f"/>
@@ -141,7 +134,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSj-3S-AqI">
-                                <rect key="frame" x="121.5" y="315.5" width="171.5" height="67.5"/>
+                                <rect key="frame" x="134.5" y="315.5" width="145" height="67.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Icq-dS-yUE">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="67.5"/>
@@ -170,28 +163,46 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="h24-c0-HDY">
-                                        <rect key="frame" x="100" y="0.0" width="71.5" height="67.5"/>
+                                        <rect key="frame" x="100" y="0.0" width="45" height="67.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max temp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRN-dv-rUw">
-                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 °C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRN-dv-rUw">
+                                                <rect key="frame" x="0.0" y="0.0" width="43" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Min temp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="td0-Ia-KbP">
-                                                <rect key="frame" x="0.0" y="23.5" width="68" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 °C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="td0-Ia-KbP">
+                                                <rect key="frame" x="0.0" y="23.5" width="43" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRc-AK-6W7">
-                                                <rect key="frame" x="0.0" y="47" width="64" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 %" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRc-AK-6W7">
+                                                <rect key="frame" x="0.0" y="47" width="45" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lsv-av-dBo">
+                                <rect key="frame" x="40" y="525.5" width="334" height="68"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Tip from the weather expert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qn-3C-EDj">
+                                        <rect key="frame" x="54" y="0.0" width="226.5" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="&quot;You need to wear clothes.&quot;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="adR-2o-hAq">
+                                        <rect key="frame" x="55" y="28.5" width="224" height="39.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather-expert" translatesAutoresizingMaskIntoConstraints="NO" id="BaF-xN-Lfh">
@@ -201,24 +212,6 @@
                                     <outletCollection property="gestureRecognizers" destination="eK1-GX-Ugx" appends="YES" id="hrS-nc-Lvb"/>
                                 </connections>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lsv-av-dBo">
-                                <rect key="frame" x="40" y="525.5" width="334" height="91"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Tip from the weather expert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qn-3C-EDj">
-                                        <rect key="frame" x="54" y="0.0" width="226.5" height="23.5"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="adR-2o-hAq">
-                                        <rect key="frame" x="20.5" y="28.5" width="293.5" height="62.5"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
